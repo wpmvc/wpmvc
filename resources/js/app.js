@@ -1,1 +1,1 @@
-console.log("Hello WaxFramework");
+console.log("Hello WpMVC");

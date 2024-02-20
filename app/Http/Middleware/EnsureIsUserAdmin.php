@@ -2,7 +2,7 @@
 
 namespace MyPluginNamespace\App\Http\Middleware;
 
-use MyPluginNamespace\WaxFramework\Routing\Contracts\Middleware;
+use MyPluginNamespace\WpMVC\Routing\Contracts\Middleware;
 use WP_REST_Request;
 
 class EnsureIsUserAdmin implements Middleware

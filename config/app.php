@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 use MyPluginNamespace\App\Http\Middleware\EnsureIsUserAdmin;
 use MyPluginNamespace\App\Providers\MenuServiceProvider;
 use MyPluginNamespace\Database\Migrations\TestMigration;
-use MyPluginNamespace\WaxFramework\App;
+use MyPluginNamespace\WpMVC\App;
 
 return [
     'version'                 => get_plugin_data( App::$plugin_root_file )['Version'],

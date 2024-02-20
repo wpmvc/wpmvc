@@ -2,17 +2,17 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use MyPluginNamespace\WaxFramework\App;
+use MyPluginNamespace\WpMVC\App;
 
 /**
  * Plugin Name:       MyPluginName
- * Description:       This plugin is build with Wax framework
+ * Description:       This plugin is build with WpMVC framework
  * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Tested up to:      6.2
- * Author:            SovWare
- * Author URI:        http://github.com/sovware
+ * Author:            WpMVC
+ * Author URI:        http://github.com/wpmvc
  * License:           GPL v3 or later
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       MyPluginTextDomain

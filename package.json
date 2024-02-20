@@ -1,5 +1,5 @@
 {
-  "name": "waxframework",
+  "name": "wpmvc",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -14,14 +14,14 @@
 	},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sovware/waxframework.git"
+    "url": "git+https://github.com/wpmvc/wpmvc.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sovware/waxframework/issues"
+    "url": "https://github.com/wpmvc/wpmvc/issues"
   },
-  "homepage": "https://github.com/sovware/waxframework#readme",
+  "homepage": "https://github.com/wpmvc/wpmvc#readme",
   "devDependencies": {
 		"@wordpress/scripts": "^26.3.0",
 		"filemanager-webpack-plugin": "^8.0.0",

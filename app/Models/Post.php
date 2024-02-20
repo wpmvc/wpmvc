@@ -2,10 +2,10 @@
 
 namespace MyPluginNamespace\App\Models;
 
-use MyPluginNamespace\WaxFramework\App;
-use MyPluginNamespace\WaxFramework\Database\Eloquent\Model;
-use MyPluginNamespace\WaxFramework\Database\Eloquent\Relations\HasMany;
-use MyPluginNamespace\WaxFramework\Database\Resolver;
+use MyPluginNamespace\WpMVC\App;
+use MyPluginNamespace\WpMVC\Database\Eloquent\Model;
+use MyPluginNamespace\WpMVC\Database\Eloquent\Relations\HasMany;
+use MyPluginNamespace\WpMVC\Database\Resolver;
 
 class Post extends Model {
     public static function get_table_name():string {

@@ -2,7 +2,7 @@
 
 namespace MyPluginNamespace\App\Providers;
 
-use MyPluginNamespace\WaxFramework\Contracts\Provider;
+use MyPluginNamespace\WpMVC\Contracts\Provider;
 
 class MenuServiceProvider implements Provider
 {

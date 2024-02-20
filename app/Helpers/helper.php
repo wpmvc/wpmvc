@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use MyPluginNamespace\WaxFramework\App;
+use MyPluginNamespace\WpMVC\App;
 use MyPluginNamespace\DI\Container;
 
 function my_plugin_function():App {

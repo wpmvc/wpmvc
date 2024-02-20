@@ -108,7 +108,7 @@ module.exports = (grunt) => {
 		│                                                                 │
 		│                      All tasks completed.                       │
 		│  Built files & Installable zip copied to the __build directory. │
-		│                         ~ SovWare ~                             │
+		│                         ~ WpMVC ~                             │
 		│                                                                 │
 		╰─────────────────────────────────────────────────────────────────╯
 		`.green,

@@ -2,7 +2,7 @@
 
 namespace MyPluginNamespace\Database\Migrations;
 
-use MyPluginNamespace\WaxFramework\Contracts\Migration;
+use MyPluginNamespace\WpMVC\Contracts\Migration;
 
 class TestMigration implements Migration {
     public function more_than_version() {

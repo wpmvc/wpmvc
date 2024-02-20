@@ -2,6 +2,6 @@
 
 require_once  __DIR__ . '/vendor-src/autoload.php';
 
-$artisan = new WaxFramework\Artisan\Artisan( __DIR__ );
+$artisan = new WpMVC\Artisan\Artisan( __DIR__ );
 
 $artisan->execute();
