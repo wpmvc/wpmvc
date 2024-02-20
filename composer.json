@@ -37,8 +37,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.4",
-        "php-di/php-di": "6.4.0",
-        "wpmvc/framework": "^1.0.0"
+        "wpmvc/framework": "1.0.0"
     },
     "require-dev": {
         "wpmvc/artisan": "^1.0.0",
