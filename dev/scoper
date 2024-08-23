@@ -1,7 +1,0 @@
-<?php
-
-system( "php vendor-src/bin/php-scoper add-prefix --config=dev/scoper.inc.php --output-dir self-vendor --force" );
-echo PHP_EOL;
-
-system( "php dev/move-to-vendor" );
-echo PHP_EOL;

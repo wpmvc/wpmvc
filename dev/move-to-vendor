@@ -1,37 +1,44 @@
 <?php
 
-$source      = __DIR__ . '/../self-vendor/wpmvc';
-$destination = __DIR__ . '/../vendor/vendor-src/wpmvc';
+$source_directory = __DIR__ . '/../self-vendor';
+$destination_directory = __DIR__ . '/../vendor/vendor-src/wpmvc';
 
 // Function to delete a folder and its contents
-function deleteFolder($folder) {
+function delete_folder($folder) {
     if (!is_dir($folder)) {
         return;
     }
-    
+
     $files = array_diff(scandir($folder), ['.', '..']);
     
     foreach ($files as $file) {
         $path = $folder . DIRECTORY_SEPARATOR . $file;
-        is_dir($path) ? deleteFolder($path) : unlink($path);
+        if (is_dir($path)) {
+            delete_folder($path);
+        } else {
+            unlink($path);
+        }
     }
 
-    
     rmdir($folder);
 }
 
 // Check if the source folder exists
-if ( ! is_dir( $source ) ) {
-    die( 'Source folder does not exist.' );
+if (!is_dir($source_directory)) {
+    die('Source folder does not exist.');
 }
 
 // Delete the destination folder if it exists
-if ( is_dir( $destination ) ) {
-    deleteFolder( $destination );
+if (is_dir($destination_directory)) {
+    delete_folder($destination_directory);
 }
 
-// Move the folder
-rename( $source, $destination );
+// Move the folder from source to destination
+if (!rename($source_directory, $destination_directory)) {
+    die('Failed to move folder.');
+}
 
-deleteFolder(__DIR__ . '/../self-vendor');
-
+// Optionally, delete the original source folder (if it still exists)
+if (is_dir($source_directory)) {
+    delete_folder($source_directory);
+}

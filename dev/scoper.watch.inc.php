@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Isolated\Symfony\Component\Finder\Finder;
-
 return [
     // The prefix configuration. If a non-null value is used, a random prefix
     // will be generated instead.
@@ -18,26 +16,7 @@ return [
     // This configuration entry is completely ignored when using Box.
     //
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#finders-and-paths
-    'finders'                 => [
-        Finder::create()
-            ->files()
-            ->followLinks()
-            ->ignoreVCS( true )
-            ->notName( '/LICENSE|.*\\.md|.*\\.dist|Makefile' )
-            ->exclude(
-                [
-                    'doc',
-                    'test',
-                    'test_old',
-                    'tests',
-                    'Tests',
-                    'vendor-bin',
-                    'vendor'
-                ]
-            )
-            ->in( 'vendor-src/wpmvc' )
-
-    ],
+    'finders'                 => [],
 
     // List of excluded files, i.e. files for which the content will be left untouched.
     // Paths are relative to the configuration file unless if they are already absolute
