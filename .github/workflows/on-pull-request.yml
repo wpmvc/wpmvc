@@ -1,0 +1,42 @@
+name: PHPCS check
+
+on:
+  pull_request:
+    branches:
+      - master
+      - development
+  pull_request_target:
+      branches:
+        - master
+        - development
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  phpcs:
+    name: PHPCS check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          ini-values: 'memory_limit=1G'
+          coverage: none
+          tools: cs2pr
+
+      - name: Install Composer dependencies
+        run: composer setup
+
+      - name: Run PHPCS checks
+        run: php vendor/vendor-src/bin/phpcs --standard=phpcs.xml

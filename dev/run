@@ -1,0 +1,5 @@
+<?php
+
+system( "php dev/scoper" );
+
+system( 'node dev/watch.js' );

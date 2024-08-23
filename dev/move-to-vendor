@@ -1,0 +1,37 @@
+<?php
+
+$source      = __DIR__ . '/../self-vendor/wpmvc';
+$destination = __DIR__ . '/../vendor/vendor-src/wpmvc';
+
+// Function to delete a folder and its contents
+function deleteFolder($folder) {
+    if (!is_dir($folder)) {
+        return;
+    }
+    
+    $files = array_diff(scandir($folder), ['.', '..']);
+    
+    foreach ($files as $file) {
+        $path = $folder . DIRECTORY_SEPARATOR . $file;
+        is_dir($path) ? deleteFolder($path) : unlink($path);
+    }
+
+    
+    rmdir($folder);
+}
+
+// Check if the source folder exists
+if ( ! is_dir( $source ) ) {
+    die( 'Source folder does not exist.' );
+}
+
+// Delete the destination folder if it exists
+if ( is_dir( $destination ) ) {
+    deleteFolder( $destination );
+}
+
+// Move the folder
+rename( $source, $destination );
+
+deleteFolder(__DIR__ . '/../self-vendor');
+
