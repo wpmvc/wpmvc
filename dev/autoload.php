@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(
-    function ($class) {
+    function ( $class ) {
         // Base directories for namespaces
         $base_dirs = [
             'MyPluginNamespace\\WpMVC\\Artisan'          => __DIR__ . '/../vendor/vendor-src/wpmvc/artisan/src/',
@@ -12,17 +12,17 @@ spl_autoload_register(
         ];
 
         // Iterate through base directories and namespaces
-        foreach ($base_dirs as $namespace => $base_dir) {
+        foreach ( $base_dirs as $namespace => $base_dir ) {
             // Check if the class name starts with the namespace
-            if (strncmp($class, $namespace, strlen($namespace)) === 0) {
+            if ( strncmp( $class, $namespace, strlen( $namespace ) ) === 0 ) {
                 // Remove the namespace prefix from the class name
-                $relative_class = substr($class, strlen($namespace));
+                $relative_class = substr( $class, strlen( $namespace ) );
 
                 // Replace namespace separators with directory separators
-                $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+                $file = $base_dir . str_replace( '\\', '/', $relative_class ) . '.php';
 
                 // If the file exists, require it
-                if (file_exists($file)) {
+                if ( file_exists( $file ) ) {
                     require $file;
                     break;
                 }
