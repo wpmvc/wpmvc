@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 use Isolated\Symfony\Component\Finder\Finder;
 
-$config = require __DIR__ . '/../dev-tools/scoper/global.config.php';
+$config               = require __DIR__ . '/global.config.php';
+$exclude_files_config = require __DIR__ . '/exclude.files.config.php';
 
 return array_merge(
     [
@@ -18,7 +19,6 @@ return array_merge(
         'finders' => [
             Finder::create()
             ->files()
-            ->followLinks()
             ->ignoreVCS( true )
             ->notName( '/LICENSE|.*\\.md|.*\\.dist|Makefile' )
             ->exclude(
@@ -28,11 +28,16 @@ return array_merge(
                     'test_old',
                     'tests',
                     'Tests',
-                    'vendor-bin',
-                    'vendor'
+                    'vendor-bin'
                 ]
             )
-            ->in( __DIR__ . '/../vendor-src/wpmvc' )
+            ->in( $directory . 'vendor-src' ),
+            Finder::create()->append(
+                [
+                    $directory . 'composer.json',
+                    $directory . 'composer.lock'
+                ]
+            )
         ],
-    ], $config
+    ], $exclude_files_config, $config
 );

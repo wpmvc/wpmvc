@@ -1,10 +1,10 @@
 {
-    "name": "wpmvc/wpmvc",
-    "description": "Wordpress plugin framework",
-    "type": "project",
-    "license": "MIT",
-    "version": "1.0.0",
-    "scripts": {
+	"name": "wpmvc/wpmvc",
+	"description": "Wordpress plugin framework",
+	"type": "project",
+	"license": "MIT",
+	"version": "1.0.0",
+	"scripts": {
 		"setup": [
 			"composer install --no-cache",
 			"composer humbug/php-scoper",
@@ -15,48 +15,48 @@
 		],
 		"humbug/php-scoper": "composer bin php-scoper require --dev humbug/php-scoper:0.17.5",
 		"add-prefix": [
-			"vendor-src/bin/php-scoper add-prefix --output-dir vendor --force",
+			"vendor-src/bin/php-scoper add-prefix --config=dev-tools/scoper/index.php --output-dir vendor --force",
 			"composer dump-autoload -d vendor"
 		],
 		"format": "vendor/vendor-src/bin/phpcbf --standard=phpcs.xml",
 		"phpcs": "vendor/vendor-src/bin/phpcs --standard=phpcs.xml"
 	},
-    "autoload": {
-        "psr-4": {
-            "App\\": "./../app/",
-            "Bootstrap\\": "./../bootstrap/",
-            "Database\\": "./../database/"
-        }
-    },
-    "authors": [
-        {
-            "name": "MD AL AMIN",
-            "email": "mdalaminbey@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.4",
-        "wpmvc/framework": "1.0.0"
-    },
-    "require-dev": {
-        "wpmvc/artisan": "1.0.0",
-        "bamarni/composer-bin-plugin": "1.8.2",
-        "squizlabs/php_codesniffer": "3.7.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
-        "phpcompatibility/phpcompatibility-wp": "2.1.4",
-        "wp-coding-standards/wpcs": "^2.3"
-    },
-    "config": {
-        "vendor-dir": "vendor-src",
-        "allow-plugins": {
-            "bamarni/composer-bin-plugin": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "extra": {
-        "bamarni-bin": {
-            "target-directory": "vendor-src/vendor-bin"
-        }
-    }
+	"autoload": {
+		"psr-4": {
+			"App\\": "./../app/",
+			"Bootstrap\\": "./../bootstrap/",
+			"Database\\": "./../database/"
+		}
+	},
+	"authors": [
+		{
+			"name": "MD AL AMIN",
+			"email": "mdalaminbey@gmail.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=7.4",
+		"wpmvc/framework": "1.0.0"
+	},
+	"require-dev": {
+		"wpmvc/artisan": "1.0.0",
+		"bamarni/composer-bin-plugin": "1.8.2",
+		"squizlabs/php_codesniffer": "3.7.2",
+		"dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
+		"phpcompatibility/phpcompatibility-wp": "2.1.4",
+		"wp-coding-standards/wpcs": "^2.3"
+	},
+	"config": {
+		"vendor-dir": "vendor-src",
+		"allow-plugins": {
+			"bamarni/composer-bin-plugin": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"extra": {
+		"bamarni-bin": {
+			"target-directory": "vendor-src/vendor-bin"
+		}
+	}
 }
