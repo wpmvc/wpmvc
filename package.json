@@ -9,6 +9,7 @@
 		"format": "wp-scripts format",
 		"minify": "wp-scripts build",
 		"compress": "webpack --config dev-tools/webpack.compress.js",
+		"git-compress": "webpack --config dev-tools/webpack.compress.git.js",
 		"fixtextdomain": "grunt fixtextdomain --gruntfile dev-tools/Gruntfile.js",
 		"build": "composer build && npm run minify && grunt build && npm run compress && grunt screen:finish"
 	},
