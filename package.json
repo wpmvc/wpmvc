@@ -8,7 +8,7 @@
 		"start:hot": "wp-scripts start --hot",
 		"format": "wp-scripts format",
 		"minify": "wp-scripts build",
-		"compress": "webpack --config webpack.compress.js",
+		"compress": "webpack --config dev-tools/webpack.compress.js",
 		"fixtextdomain": "grunt fixtextdomain --gruntfile dev-tools/Gruntfile.js",
 		"build": "composer build && npm run minify && grunt build && npm run compress && grunt screen:finish"
 	},
