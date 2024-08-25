@@ -11,7 +11,7 @@
 	<ini name="memory_limit" value="256M" />
 
 	<!-- Strip the filepaths in reports down to the relevant bit. -->
-	<arg name="basepath" value="./" />
+	<arg name="basepath" value="./../" />
 
 	<!-- Check up to 8 files simultaneously. -->
 	<arg name="parallel" value="8" />
@@ -39,6 +39,8 @@
 	<exclude-pattern>node_modues/*</exclude-pattern>
 	<exclude-pattern>__build/*</exclude-pattern>
 	<exclude-pattern>assets/*</exclude-pattern>
+	<exclude-pattern>dev/*</exclude-pattern>
+	<exclude-pattern>dev-tools/*</exclude-pattern>
 	<!-- ... -->
 
 	<rule ref="PHPCompatibility" />
@@ -152,4 +154,5 @@
 			<property name="spacingBeforeFirst" value="0" />
 		</properties>
 	</rule>
+	<rule ref="./../CustomSniffs/Sniffs/Files/ABSPATHDefinedSniff.php"/>
 </ruleset>
