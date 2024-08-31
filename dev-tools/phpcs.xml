@@ -19,7 +19,7 @@
 	<!-- Show progress, show the error codes for each message (source). -->
 	<arg value="ps" />
 
-	<file>.</file>
+	<file>../</file>
 
 	<!-- Configs -->
 	<config name="minimum_supported_wp_version" value="6.0" />
