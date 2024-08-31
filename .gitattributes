@@ -1,8 +1,3 @@
 * text=auto
 
-/.github export-ignore
 /dev export-ignore
-/tests export-ignore
-.editorconfig export-ignore
-.gitattributes export-ignore
-.gitignore export-ignore
