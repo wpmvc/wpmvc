@@ -11,7 +11,9 @@
 		"compress": "webpack --config dev-tools/webpack.compress.js",
 		"git-compress": "webpack --config dev-tools/webpack.compress.git.js",
 		"fixtextdomain": "grunt fixtextdomain --gruntfile dev-tools/Gruntfile.js",
-		"build": "composer build && npm run minify && grunt build && npm run compress && grunt screen:finish"
+		"grunt-build": "grunt build --gruntfile dev-tools/Gruntfile.js",
+		"grunt-finish": "grunt screen:finish --gruntfile dev-tools/Gruntfile.js",
+		"build": "composer build && npm run minify && npm run grunt-build && npm run compress && npm run grunt-finish"
 	},
 	"repository": {
 		"type": "git",

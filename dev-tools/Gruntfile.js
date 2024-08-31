@@ -8,14 +8,14 @@ module.exports = ( grunt ) => {
 	};
 
 	const textDomainFiles = [
-		'*.php',
-		'**/*.php',
-		'!CustomSniffs/**',
-		'!dev-tools/**',
-		'!node_modules/**',
-		'!vendor/**',
-		'!vendor-src/**',
-		'!__build/**',
+		'../*.php',
+		'../**/*.php',
+		'!../CustomSniffs/**',
+		'!../dev-tools/**',
+		'!../node_modules/**',
+		'!../vendor/**',
+		'!../vendor-src/**',
+		'!../__build/**',
 	];
 
 	grunt.initConfig( {
@@ -25,7 +25,8 @@ module.exports = ( grunt ) => {
 		},
 		addtextdomain: {
 			options: {
-				updateDomains: true, // List of text domains to replace.
+				updateDomains: true,
+				textdomain: '<%= grunt.config.get("screen.begin.options.data.textDomain") %>'
 			},
 			target: {
 				files: {
@@ -67,18 +68,6 @@ module.exports = ( grunt ) => {
 			},
 		},
 
-		makepot: {
-			target: {
-				options: {
-					cwd: projectConfig.srcDir, // Directory of files to internationalize.
-					mainFile: '', // Main project file.
-					type: 'wp-plugin', // Type of project (wp-plugin or wp-theme).
-					updateTimestamp: false, // Whether the POT-Creation-Date should be updated without other changes.
-					updatePoFiles: false, // Whether to update PO files in the same directory as the POT file.
-				},
-			},
-		},
-
 		/**
 		 * -------------------------------------
 		 * @description print ASCII text
@@ -91,7 +80,7 @@ module.exports = ( grunt ) => {
 				options: {
 					data: {
 						version: '1.0.0',
-						textDomain: 'myplugin',
+						textDomain: '<%= grunt.config.get("screen.begin.options.data.textDomain") %>',
 					},
 				},
 				template: `
@@ -110,7 +99,7 @@ module.exports = ( grunt ) => {
 		╭─────────────────────────────────────────────────────────────────╮
 		│                                                                 │
 		│                      All tasks completed.                       │
-		│  Built files & Installable zip copied to the __build directory.  │
+		│  Built files & Installable zip copied to the __build directory. │
 		│                         ~ WpMVC ~                               │
 		│                                                                 │
 		╰─────────────────────────────────────────────────────────────────╯
@@ -128,8 +117,8 @@ module.exports = ( grunt ) => {
 
 	grunt.registerTask( 'getPluginInfo', async function () {
 		var done = this.async();
-		const version = await Utils.getPluginInfo(); // Fetch or determine the plugin version dynamically
-		grunt.config.set( 'screen.begin.options.data', version );
+		const pluginInfo = await Utils.getPluginInfo(); // Fetch or determine the plugin version dynamically
+		grunt.config.set( 'screen.begin.options.data', pluginInfo );
 		done( true );
 	} );
 
@@ -137,8 +126,7 @@ module.exports = ( grunt ) => {
 		'clean',
 		'screen:textdomainchecking',
 		'addtextdomain',
-		'checktextdomain',
-		'makepot',
+		'checktextdomain'
 	] );
 
 	grunt.registerTask( 'screen:textdomainchecking', function () {
