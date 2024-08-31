@@ -10,6 +10,8 @@ module.exports = ( grunt ) => {
 	const textDomainFiles = [
 		'*.php',
 		'**/*.php',
+		'!CustomSniffs/**',
+		'!dev-tools/**',
 		'!node_modules/**',
 		'!vendor/**',
 		'!vendor-src/**',
@@ -108,8 +110,8 @@ module.exports = ( grunt ) => {
 		╭─────────────────────────────────────────────────────────────────╮
 		│                                                                 │
 		│                      All tasks completed.                       │
-		│  Built files & Installable zip copied to the __build directory. │
-		│                         ~ WpMVC ~                             │
+		│  Built files & Installable zip copied to the __build directory.  │
+		│                         ~ WpMVC ~                               │
 		│                                                                 │
 		╰─────────────────────────────────────────────────────────────────╯
 		`.green,
