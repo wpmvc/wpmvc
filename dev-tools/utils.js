@@ -2,7 +2,7 @@ const path = require( 'path' );
 const fs = require( 'fs' ).promises;
 const normalizePath = require( 'normalize-path' );
 
-const pluginRootFile = 'wpmvc';
+const pluginRootFile = 'MyPluginName';
 const rootDir = path.dirname( __dirname );
 const dist = normalizePath( path.join( rootDir, '__build' ) );
 
