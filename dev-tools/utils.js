@@ -89,6 +89,9 @@ const buildIgnoreFiles = [
 	'**/Installable',
 	'**/tests',
 	'**/composer/installed.json',
+	'**/install-wp-tests.sh', //This file is coming form wp background processor package.
+	'**/*.exe',
+	'**/*.bash',
 ].map( ( file_path ) => `${ dist }/zip/${ pluginRootFile }/${ file_path }` );
 
 module.exports = {
