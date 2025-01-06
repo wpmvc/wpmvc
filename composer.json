@@ -1,9 +1,9 @@
 {
 	"name": "wpmvc/wpmvc",
-	"description": "Wordpress plugin framework",
+	"description": "WpMVC is a WordPress plugin framework that makes web development easy and enjoyable.",
 	"type": "project",
 	"license": "MIT",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"scripts": {
 		"setup": [
 			"composer install --no-cache",
@@ -19,7 +19,11 @@
 			"composer dump-autoload -d vendor"
 		],
 		"format": "vendor/vendor-src/bin/phpcbf --standard=dev-tools/phpcs.xml",
-		"phpcs": "vendor/vendor-src/bin/phpcs --standard=dev-tools/phpcs.xml"
+		"phpcs": "vendor/vendor-src/bin/phpcs --standard=dev-tools/phpcs.xml",
+		"permission": [
+			"chmod +x vendor/vendor-src/bin/phpcs",
+			"chmod +x vendor/vendor-src/bin/phpcbf"
+		]
 	},
 	"autoload": {
 		"psr-4": {
@@ -37,7 +41,7 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=7.4",
-		"wpmvc/framework": "1.1.0"
+		"wpmvc/framework": "1.1.1"
 	},
 	"require-dev": {
 		"wpmvc/artisan": "1.1.0",
