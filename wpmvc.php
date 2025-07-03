@@ -3,6 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use MyPluginNamespace\WpMVC\App;
+use MyPluginNamespace\Database\Setup;
 
 /**
  * Plugin Name:       MyPluginName
@@ -34,6 +35,13 @@ final class MyPluginClass
     }
 
     public function load() {
+        // Run Activation Tasks
+        register_activation_hook(
+            __FILE__, function() {
+                ( new Setup )->execute();
+            } 
+        );
+
         $application = App::instance();
 
         $application->boot( __FILE__, __DIR__ );
