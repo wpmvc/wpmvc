@@ -42,6 +42,7 @@ return [
         'WP_Error',
         'wpdb',
         'WP',
+        'WP_Filesystem_Direct'
         // 'ReflectionClassConstant',
     ],
     'exclude-functions'       => [
