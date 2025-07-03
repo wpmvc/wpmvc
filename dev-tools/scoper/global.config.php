@@ -45,7 +45,8 @@ return [
         // 'ReflectionClassConstant',
     ],
     'exclude-functions'       => [
-        'get_plugin_data'
+        'get_plugin_data',
+        'dbDelta'
     ],
     'exclude-constants'       => [
         '/^SYMFONY\_[\p{L}_]+$/',

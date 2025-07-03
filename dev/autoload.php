@@ -9,6 +9,7 @@ spl_autoload_register(
             'MyPluginNamespace\\WpMVC'                   => __DIR__ . '/../vendor/vendor-src/wpmvc/framework/src/',
             'MyPluginNamespace\\WpMVC\\RequestValidator' => __DIR__ . '/../vendor/vendor-src/wpmvc/request-validator/src/',
             'MyPluginNamespace\\WpMVC\\Routing'          => __DIR__ . '/../vendor/vendor-src/wpmvc/routing/src/',
+            'MyPluginNamespace\\WpMVC\\Helpers'          => __DIR__ . '/../vendor/vendor-src/wpmvc/helpers/src/',
         ];
 
         // Iterate through base directories and namespaces
