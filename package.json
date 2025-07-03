@@ -26,7 +26,7 @@
 	},
 	"homepage": "https://github.com/wpmvc/wpmvc#readme",
 	"devDependencies": {
-		"@wordpress/scripts": "^26.3.0",
+		"@wordpress/scripts": "^30.19.0",
 		"filemanager-webpack-plugin": "^8.0.0",
 		"grunt": "^1.6.1",
 		"grunt-checktextdomain": "^1.0.1",
