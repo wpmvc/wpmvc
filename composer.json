@@ -8,7 +8,8 @@
 		"setup": [
 			"composer install --no-cache",
 			"composer humbug/php-scoper",
-			"composer add-prefix"
+			"composer add-prefix",
+			"composer permission"
 		],
 		"build": [
 			"composer -d vendor --no-plugins --no-interaction install --no-scripts --no-dev"
