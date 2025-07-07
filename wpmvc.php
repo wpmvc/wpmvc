@@ -8,10 +8,10 @@ use MyPluginNamespace\Database\Setup;
 /**
  * Plugin Name:       MyPluginName
  * Description:       This plugin is build with WpMVC framework
- * Version:           1.0.0
- * Requires at least: 6.0
+ * Version:           0.0.1
+ * Requires at least: 6.5
  * Requires PHP:      7.4
- * Tested up to:      6.2
+ * Tested up to:      6.8
  * Author:            WpMVC
  * Author URI:        http://github.com/wpmvc
  * License:           GPL v3 or later
