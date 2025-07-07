@@ -1,7 +1,7 @@
 const path = require('path');
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
-const devHost = 'wpmvc.test';
+const devHost = 'wpmvc.local';
 
 module.exports = {
 	...defaultConfig,
