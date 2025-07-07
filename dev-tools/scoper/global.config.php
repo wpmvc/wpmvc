@@ -47,6 +47,7 @@ return [
     ],
     'exclude-functions'       => [
         'get_plugin_data',
+        'get_plugins',
         'dbDelta'
     ],
     'exclude-constants'       => [
