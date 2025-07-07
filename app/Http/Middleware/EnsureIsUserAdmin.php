@@ -2,6 +2,8 @@
 
 namespace MyPluginNamespace\App\Http\Middleware;
 
+defined( 'ABSPATH' ) || exit;
+
 use MyPluginNamespace\WpMVC\Routing\Contracts\Middleware;
 use WP_REST_Request;
 

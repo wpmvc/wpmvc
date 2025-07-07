@@ -2,6 +2,8 @@
 
 namespace MyPluginNamespace\Database\Migrations;
 
+defined( 'ABSPATH' ) || exit;
+
 use MyPluginNamespace\WpMVC\Contracts\Migration;
 
 class TestMigration implements Migration {

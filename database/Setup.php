@@ -2,9 +2,9 @@
 
 namespace MyPluginNamespace\Database;
 
-use MyPluginNamespace\WpMVC\Database\Schema\Schema;
-
 defined( 'ABSPATH' ) || exit;
+
+use MyPluginNamespace\WpMVC\Database\Schema\Schema;
 
 class Setup {
     public function execute() {
