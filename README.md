@@ -4,32 +4,54 @@
 <a href="https://packagist.org/packages/wpmvc/wpmvc"><img src="https://img.shields.io/packagist/l/wpmvc/framework" alt="License"></a>
 </p>
 
-# About WpMVC
+# 🚀 Installation Guide
 
-WpMVC is a wordpress plugin framework that makes web development easy and enjoyable. Its expressive syntax and range of features help developers create high-quality applications with ease.
+Welcome to **WpMVC** — a modern WordPress plugin framework that brings simplicity, structure, and speed to plugin development. With expressive syntax and a rich set of tools, WpMVC helps developers build high-quality plugins effortlessly.
 
-- [About WpMVC](#about-wpmvc)
-	- [Installation](#installation)
-	- [Artisan Command](#artisan-command)
-	- [Routing](#routing)
-	- [Database](#database)
-	- [Regenerate Vendor Directory](#regenerate-vendor-directory)
+## 1. Create a New Plugin
 
-## Installation
+Start by scaffolding your plugin using Composer:
 
-1. Create plugin with wpmvc
+```sh
+composer create-project wpmvc/wpmvc plugin-name
+```
 
-   ```sh
-   composer create-project wpmvc/wpmvc plugin-name
-   ```
-2. Go to the plugin directory
-   ```sh
-   cd plugin-name
-   ```
-3. Setup plugin name and other information
-	```sh
-	php artisan app:setup
-	```
+Replace `plugin-name` with your desired plugin folder name.
+
+## 2. Navigate to Your Plugin Directory
+
+```sh
+cd plugin-name
+```
+
+## 3. Run the Setup Wizard
+
+Configure your plugin details interactively:
+
+```sh
+php artisan app:setup
+```
+
+### Setup Prompts Explained
+
+When prompted:
+
+* **Enter Plugin:**
+  This is the display name of your plugin.
+  *Example:* `Plugin Name`
+
+* **Enter plugin namespace:**
+  This is the PHP namespace used throughout your codebase.
+  *Example:* `PluginName`
+
+* **Enter plugin API namespace:**
+  This is the namespace for your REST API endpoints.
+  *Example:* `plugin-name`
+
+---
+
+✅ That’s it — your plugin is now scaffolded and ready to build!
+
 ## Artisan Command
 Run this command to see all available command lists
 ```sh
