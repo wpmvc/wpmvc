@@ -36,8 +36,3 @@ function my_plugin_function_url( string $url = '' ) {
 function my_plugin_function_dir( string $dir = '' ) {
     return my_plugin_function()->get_dir( $dir );
 }
-
-function my_plugin_function_render( string $content ) {
-    //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-    echo $content;
-}

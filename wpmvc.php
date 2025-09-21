@@ -53,11 +53,11 @@ final class MyPluginClass
         add_action(
             'plugins_loaded', function () use ( $application ): void {
 
-                do_action( 'before_load_my_plugin_hook' );
+                do_action( 'my_plugin_hook_before_load' );
 
                 $application->load();
 
-                do_action( 'after_load_my_plugin_hook' );
+                do_action( 'my_plugin_hook_after_load' );
             }
         );
     }

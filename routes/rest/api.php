@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use MyPluginNamespace\App\Http\Controllers\UserController;
-use MyPluginNamespace\WpMVC\Routing\Route;
+// use MyPluginNamespace\App\Http\Controllers\UserController;
+// use MyPluginNamespace\WpMVC\Routing\Route;
 
-Route::get( 'user', [UserController::class, 'index'], ['admin'] );
+// Route::get( 'user', [UserController::class, 'index'], ['admin'] );
