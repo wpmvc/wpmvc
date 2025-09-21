@@ -3,7 +3,7 @@
 	"description": "WpMVC is a WordPress plugin framework that makes web development easy and enjoyable.",
 	"type": "project",
 	"license": "MIT",
-	"version": "1.2.01",
+	"version": "1.2.02",
 	"scripts": {
 		"setup": [
 			"composer install --no-cache",
