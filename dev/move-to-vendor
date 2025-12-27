@@ -1,6 +1,7 @@
 <?php
 
-$source_directory      = __DIR__ . '/../self-vendor';
+$source_directory1      = __DIR__ . '/../self-vendor/plugins/wpmvc/vendor-src/wpmvc';
+$source_directory2      = __DIR__ . '/../self-vendor/wpmvc';
 $destination_directory = __DIR__ . '/../vendor/vendor-src/wpmvc';
 
 // Function to delete a folder and its contents
@@ -23,22 +24,48 @@ function delete_folder( $folder ) {
     rmdir( $folder );
 }
 
-// Check if the source folder exists
-if ( ! is_dir( $source_directory ) ) {
-    die( 'Source folder does not exist.' );
-}
-
-// Delete the destination folder if it exists
+// Clear destination directory initially to ensure a fresh start
 if ( is_dir( $destination_directory ) ) {
     delete_folder( $destination_directory );
 }
 
-// Move the folder from source to destination
-if ( ! rename( $source_directory, $destination_directory ) ) {
-    die( 'Failed to move folder.' );
+function move_source_to_destination($source_directory, $destination_directory) {
+     // Check if the source folder exists
+    if ( ! is_dir( $source_directory ) ) {
+        return;
+    }
+
+    // Create destination folder if it doesn't exist
+    if ( ! is_dir( $destination_directory ) ) {
+        mkdir( $destination_directory, 0755, true );
+    }
+
+    $files = array_diff( scandir( $source_directory ), ['.', '..'] );
+
+    foreach ( $files as $file ) {
+        $source = $source_directory . DIRECTORY_SEPARATOR . $file;
+        $destination = $destination_directory . DIRECTORY_SEPARATOR . $file;
+
+        if ( is_dir( $source ) ) {
+            // Recursive move/merge
+            move_source_to_destination( $source, $destination );
+        } else {
+            // Overwrite file if exists
+            if ( file_exists( $destination ) ) {
+                unlink( $destination );
+            }
+            rename( $source, $destination );
+        }
+    }
+
+    // Remove the source folder now that it's empty
+    rmdir( $source_directory );
 }
 
-// Optionally, delete the original source folder (if it still exists)
-if ( is_dir( $source_directory ) ) {
-    delete_folder( $source_directory );
+move_source_to_destination($source_directory1, $destination_directory);
+move_source_to_destination($source_directory2, $destination_directory);
+
+$self_vendor_directory = __DIR__ . '/../self-vendor';
+if ( is_dir( $self_vendor_directory ) ) {
+    delete_folder( $self_vendor_directory );
 }

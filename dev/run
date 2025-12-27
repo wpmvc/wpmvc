@@ -1,9 +1,9 @@
 <?php
-// Execute PHP-Scoper command
+# Execute PHP-Scoper command
 system( "php vendor-src/bin/php-scoper add-prefix --config=dev/scoper.inc.php --output-dir=self-vendor --force" );
 
-// Execute move script
+# Execute move script
 system( "php dev/move-to-vendor");
 
-// Execute Node.js script
+# Execute Node.js script
 system( "node dev/watch.js" );

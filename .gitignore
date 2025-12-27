@@ -16,3 +16,4 @@ yarn.lock
 composer.lock
 .DS_Store
 pnpm-lock.yaml
+self-vendor
