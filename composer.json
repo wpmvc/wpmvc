@@ -14,7 +14,7 @@
 		"build": [
 			"composer -d vendor --no-plugins --no-interaction install --no-scripts --no-dev"
 		],
-		"humbug/php-scoper": "composer bin php-scoper require --dev humbug/php-scoper:0.17.5",
+		"humbug/php-scoper": "composer bin php-scoper require --dev humbug/php-scoper:^0.18",
 		"add-prefix": [
 			"vendor-src/bin/php-scoper add-prefix --config=dev-tools/scoper/index.php --output-dir vendor --force",
 			"composer dump-autoload -d vendor"
@@ -41,16 +41,16 @@
 	],
 	"minimum-stability": "dev",
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.1",
 		"wpmvc/framework": "1.2.01"
 	},
 	"require-dev": {
 		"wpmvc/artisan": "1.1.1",
-		"bamarni/composer-bin-plugin": "1.8.2",
-		"squizlabs/php_codesniffer": "3.7.2",
-		"dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
-		"phpcompatibility/phpcompatibility-wp": "2.1.4",
-		"wp-coding-standards/wpcs": "^2.3"
+		"bamarni/composer-bin-plugin": "1.8.3",
+		"squizlabs/php_codesniffer": "^3.13.4",
+		"dealerdirect/phpcodesniffer-composer-installer": "1.2.0",
+		"phpcompatibility/phpcompatibility-wp": "2.1.8",
+		"wp-coding-standards/wpcs": "^3.3.0"
 	},
 	"config": {
 		"vendor-dir": "vendor-src",

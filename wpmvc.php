@@ -10,7 +10,7 @@ use MyPluginNamespace\Database\Setup;
  * Description:       This plugin is build with WpMVC framework
  * Version:           0.0.1
  * Requires at least: 6.5
- * Requires PHP:      7.4
+ * Requires PHP:      8.1
  * Tested up to:      6.8
  * Author:            WpMVC
  * Author URI:        http://github.com/wpmvc
