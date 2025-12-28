@@ -11,7 +11,7 @@ use MyPluginNamespace\Database\Setup;
  * Version:           0.0.1
  * Requires at least: 6.5
  * Requires PHP:      8.1
- * Tested up to:      6.8
+ * Tested up to:      6.9
  * Author:            WpMVC
  * Author URI:        http://github.com/wpmvc
  * License:           GPL v3 or later
