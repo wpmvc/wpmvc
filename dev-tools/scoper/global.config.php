@@ -17,8 +17,16 @@ return [
     // For more see: https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#patchers
     'patchers'                => [
         static function ( string $file_path, string $prefix, string $contents ): string {
-            // Change the contents here.
-        
+            // Fix PHPCSUtils string in ValidationHelper
+            if ( basename( $file_path ) === 'ValidationHelper.php' ) {
+                $contents = str_replace( "'PHPCSUtils\\Utils\\TextStrings'", "'$prefix\\PHPCSUtils\\Utils\\TextStrings'", $contents );
+            }
+
+            // Remove phpcsutils from CodeSniffer.conf to prevent double loading
+            if ( basename( $file_path ) === 'CodeSniffer.conf' ) {
+                $contents = str_replace( ',../../phpcsstandards/phpcsutils', '', $contents );
+            }
+
             return $contents;
         },
     ],
