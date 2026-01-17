@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use MyPluginNamespace\WpMVC\App;
-use MyPluginNamespace\DI\Container;
+use MyPluginNamespace\WpMVC\Container;
 
 function my_plugin_function():App {
     return App::$instance;
@@ -25,8 +25,16 @@ function my_plugin_function_container():Container {
     return my_plugin_function()::$container;
 }
 
-function my_plugin_function_singleton( string $class ) {
-    return my_plugin_function_container()->get( $class );
+/**
+ * Get a singleton instance from the container.
+ *
+ * @template T
+ * @param class-string<T> $class Class name to resolve.
+ * @param array $params Parameters to pass to the constructor.
+ * @return T Instance of the requested class.
+ */
+function my_plugin_function_singleton( string $class, array $params = [] ) {
+    return my_plugin_function_container()->get( $class, $params );
 }
 
 function my_plugin_function_url( string $url = '' ) {
