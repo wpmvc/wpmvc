@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use MyPluginNamespace\WpMVC\App;
-use MyPluginNamespace\WpMVC\Container;
+use MyPluginNamespace\WpMVC\Container\Container;
 
 function my_plugin_function():App {
     return App::$instance;
