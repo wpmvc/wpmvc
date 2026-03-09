@@ -154,5 +154,7 @@
 			<property name="spacingBeforeFirst" value="0" />
 		</properties>
 	</rule>
-	<rule ref="./../CustomSniffs/Sniffs/Files/ABSPATHDefinedSniff.php"/>
+	<rule ref="./../CustomSniffs/Sniffs/Files/ABSPATHDefinedSniff.php">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
 </ruleset>

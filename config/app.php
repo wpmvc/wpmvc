@@ -3,8 +3,12 @@
 defined( 'ABSPATH' ) || exit;
 
 use MyPluginNamespace\App\Http\Middleware\EnsureIsUserAdmin;
-use MyPluginNamespace\App\Providers\MenuServiceProvider;
-// use MyPluginNamespace\Database\Migrations\TestMigration;
+use MyPluginNamespace\App\Providers\Admin\MenuServiceProvider;
+use MyPluginNamespace\App\Models\Comment;
+use MyPluginNamespace\App\Models\Post;
+use MyPluginNamespace\App\Models\Term;
+use MyPluginNamespace\App\Models\TermTaxonomy;
+use MyPluginNamespace\App\Models\User;
 use MyPluginNamespace\WpMVC\Helpers\Helpers;
 
 return [
@@ -78,6 +82,11 @@ return [
     ],
 
     /**
+     * The WpMVC provided hooks prefix.
+     */
+    'hook_prefix'                 => 'plugin_file_name',
+
+    /**
      * This configuration option defines a hook that will fire before executing the route callback,
      * such as before a controller action. It provides two parameters:
      * 
@@ -105,4 +114,15 @@ return [
      * @param string $full_route The full route of the API endpoint.
      */
     'rest_permission_filter_hook' => 'plugin_file_name_rest_permission_filter',
+
+    /**
+     * The registered morph map for polymorphic relationships.
+     */
+    'morph_map'                   => [
+        'user'     => User::class,
+        'post'     => Post::class,
+        'comment'  => Comment::class,
+        'term'     => Term::class,
+        'taxonomy' => TermTaxonomy::class,
+    ],
 ];

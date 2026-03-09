@@ -1,3 +1,3 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
 
-<h1>Overview</h1>
+<h1>Settings</h1>

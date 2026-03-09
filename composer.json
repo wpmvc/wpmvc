@@ -3,7 +3,7 @@
 	"description": "WpMVC is a WordPress plugin framework that makes web development easy and enjoyable.",
 	"type": "project",
 	"license": "MIT",
-	"version": "1.3.2",
+	"version": "2.0.0",
 	"scripts": {
 		"setup": [
 			"composer install --no-cache",
@@ -21,10 +21,25 @@
 		],
 		"format": "vendor/vendor-src/bin/phpcbf --standard=dev-tools/phpcs.xml",
 		"phpcs": "vendor/vendor-src/bin/phpcs --standard=dev-tools/phpcs.xml",
+		"i18n": [
+			"wp i18n make-pot . languages/plugin_file_name.pot --include='app/**/*.php,assets/**/*.js,assets/**/*.php,resources/views'",
+			"cp languages/plugin_file_name.pot languages/plugin_file_name.po"
+		],
+		"i18n:build-dev": [
+			"composer i18n",
+			"wp i18n make-json languages/plugin_file_name.po --pretty-print"
+		],
+		"i18n:build": [
+			"composer i18n",
+			"wp i18n make-json languages/plugin_file_name.po"
+		],
 		"permission": [
 			"chmod +x vendor/vendor-src/bin/phpcs",
-			"chmod +x vendor/vendor-src/bin/phpcbf"
-		]
+			"chmod +x vendor/vendor-src/bin/phpcbf",
+			"chmod +x vendor/vendor-src/bin/phpunit"
+		],
+		"test": "vendor/vendor-src/bin/phpunit",
+		"test:setup": "bash bin/install-wp-tests.sh wpmvc_test root '' 127.0.0.1 latest false"
 	},
 	"autoload": {
 		"psr-4": {
@@ -42,15 +57,19 @@
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=7.4",
-		"wpmvc/framework": "1.3.2"
+		"wpmvc/framework": "^2.0.0"
 	},
 	"require-dev": {
-		"wpmvc/artisan": "1.3.2",
+		"wpmvc/artisan": "^2.0.0",
 		"bamarni/composer-bin-plugin": "1.8.2",
 		"squizlabs/php_codesniffer": "3.7.2",
 		"dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
 		"phpcompatibility/phpcompatibility-wp": "2.1.4",
-		"wp-coding-standards/wpcs": "^2.3"
+		"wp-coding-standards/wpcs": "^2.3",
+		"phpunit/phpunit": "^9.6",
+		"mockery/mockery": "^1.6",
+		"yoast/phpunit-polyfills": "^2.0",
+		"wp-cli/i18n-command": "^2.0@dev"
 	},
 	"config": {
 		"vendor-dir": "vendor-src",

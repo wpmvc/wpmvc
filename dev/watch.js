@@ -9,7 +9,16 @@ console.log( `Initializing watcher on: ${ wpmvcDir }` );
 
 const watcher = chokidar.watch( wpmvcDir, {
 	persistent: true,
+	ignored: ( path ) => {
+		return path.includes( 'vendor' ) || 
+			   path.includes( 'node_modules' ) || 
+			   path.includes( 'tests' ) ||
+			   path.includes( '.git' ) ||
+			   path.includes( '.DS_Store' );
+	},
 } );
+
+watcher.on( 'error', error => console.error( `Watcher error: ${ error }` ) );
 
 /**
  * Executes PHP-Scoper command and moves the processed file.

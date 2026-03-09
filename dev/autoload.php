@@ -5,6 +5,7 @@ spl_autoload_register(
         // Base directories for namespaces
         $base_dirs = [
             'MyPluginNamespace\\WpMVC\\Artisan'          => __DIR__ . '/../vendor/vendor-src/wpmvc/artisan/src/',
+            'MyPluginNamespace\\WpMVC\\Container'        => __DIR__ . '/../vendor/vendor-src/wpmvc/container/src/',
             'MyPluginNamespace\\WpMVC\\Database'         => __DIR__ . '/../vendor/vendor-src/wpmvc/database/src/',
             'MyPluginNamespace\\WpMVC'                   => __DIR__ . '/../vendor/vendor-src/wpmvc/framework/src/',
             'MyPluginNamespace\\WpMVC\\RequestValidator' => __DIR__ . '/../vendor/vendor-src/wpmvc/request-validator/src/',

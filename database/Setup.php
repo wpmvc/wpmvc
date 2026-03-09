@@ -16,4 +16,7 @@ class Setup {
         //     }
         // );
     }
+
+    public function drop() {
+    }
 }

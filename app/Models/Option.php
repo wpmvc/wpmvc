@@ -8,13 +8,13 @@ use MyPluginNamespace\WpMVC\Database\Eloquent\Model;
 use MyPluginNamespace\WpMVC\Database\Resolver;
 
 /**
- * Class UserMeta
+ * Class Option
  *
- * Represents the WordPress usermeta table.
+ * Represents the WordPress options table.
  *
  * @package MyPluginNamespace\App\Models
  */
-class UserMeta extends Model {
+class Option extends Model {
     /**
      * Indicates if the model should handle timestamps.
      *
@@ -27,7 +27,14 @@ class UserMeta extends Model {
      *
      * @var string
      */
-    protected string $primary_key = 'umeta_id';
+    protected string $primary_key = 'option_id';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public bool $incrementing = true;
 
     /**
      * The attributes that are mass assignable.
@@ -35,9 +42,9 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $fillable = [
-        'user_id',
-        'meta_key',
-        'meta_value',
+        'option_name',
+        'option_value',
+        'autoload',
     ];
 
     /**
@@ -46,8 +53,7 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $casts = [
-        'umeta_id' => 'int',
-        'user_id'  => 'int',
+        'option_id' => 'int',
     ];
 
     /**
@@ -56,7 +62,7 @@ class UserMeta extends Model {
      * @return string
      */
     public static function get_table_name(): string {
-        return 'usermeta';
+        return 'options';
     }
 
     /**
@@ -66,12 +72,5 @@ class UserMeta extends Model {
      */
     public function resolver(): Resolver {
         return new Resolver();
-    }
-
-    /**
-     * Get the user that owns the meta.
-     */
-    public function user() {
-        return $this->belongs_to( User::class, 'user_id', 'ID' );
     }
 }

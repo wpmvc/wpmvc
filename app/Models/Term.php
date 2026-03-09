@@ -5,16 +5,19 @@ namespace MyPluginNamespace\App\Models;
 defined( 'ABSPATH' ) || exit;
 
 use MyPluginNamespace\WpMVC\Database\Eloquent\Model;
+use MyPluginNamespace\WpMVC\Database\Eloquent\Concerns\HasFactory;
 use MyPluginNamespace\WpMVC\Database\Resolver;
 
 /**
- * Class UserMeta
+ * Class Term
  *
- * Represents the WordPress usermeta table.
+ * Represents the WordPress terms table.
  *
  * @package MyPluginNamespace\App\Models
  */
-class UserMeta extends Model {
+class Term extends Model {
+    use HasFactory;
+
     /**
      * Indicates if the model should handle timestamps.
      *
@@ -27,7 +30,7 @@ class UserMeta extends Model {
      *
      * @var string
      */
-    protected string $primary_key = 'umeta_id';
+    protected string $primary_key = 'term_id';
 
     /**
      * The attributes that are mass assignable.
@@ -35,9 +38,9 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $fillable = [
-        'user_id',
-        'meta_key',
-        'meta_value',
+        'name',
+        'slug',
+        'term_group',
     ];
 
     /**
@@ -46,8 +49,8 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $casts = [
-        'umeta_id' => 'int',
-        'user_id'  => 'int',
+        'term_id'    => 'int',
+        'term_group' => 'int',
     ];
 
     /**
@@ -56,7 +59,7 @@ class UserMeta extends Model {
      * @return string
      */
     public static function get_table_name(): string {
-        return 'usermeta';
+        return 'terms';
     }
 
     /**
@@ -69,9 +72,16 @@ class UserMeta extends Model {
     }
 
     /**
-     * Get the user that owns the meta.
+     * Get the taxonomy information for the term.
      */
-    public function user() {
-        return $this->belongs_to( User::class, 'user_id', 'ID' );
+    public function taxonomy() {
+        return $this->has_one( TermTaxonomy::class, 'term_id' );
+    }
+
+    /**
+     * Get the term's meta data.
+     */
+    public function meta() {
+        return $this->has_many( TermMeta::class, 'term_id' );
     }
 }

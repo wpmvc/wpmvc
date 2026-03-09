@@ -3,10 +3,6 @@ const Utils = require( './utils' );
 module.exports = ( grunt ) => {
 	'use strict';
 
-	const projectConfig = {
-		srcDir: '../',
-	};
-
 	const textDomainFiles = [
 		'../*.php',
 		'../**/*.php',
@@ -21,7 +17,7 @@ module.exports = ( grunt ) => {
 	grunt.initConfig( {
 		clean: {
 			options: { force: true },
-			dist: [ '../languages/**/*.pot', '../__build/**' ],
+			dist: [ '../languages/**/*.pot', '../languages/**/*.po', '../__build/**' ],
 		},
 		addtextdomain: {
 			options: {

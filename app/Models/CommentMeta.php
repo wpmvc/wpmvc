@@ -8,15 +8,13 @@ use MyPluginNamespace\WpMVC\Database\Eloquent\Model;
 use MyPluginNamespace\WpMVC\Database\Resolver;
 
 /**
- * Class UserMeta
+ * Class CommentMeta
  *
- * Represents the WordPress usermeta table.
- *
- * @package MyPluginNamespace\App\Models
+ * Represents the WordPress commentmeta table.
  */
-class UserMeta extends Model {
+class CommentMeta extends Model {
     /**
-     * Indicates if the model should handle timestamps.
+     * Indicates if the model should be soft deleted.
      *
      * @var bool
      */
@@ -27,7 +25,7 @@ class UserMeta extends Model {
      *
      * @var string
      */
-    protected string $primary_key = 'umeta_id';
+    protected string $primary_key = 'meta_id';
 
     /**
      * The attributes that are mass assignable.
@@ -35,7 +33,7 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $fillable = [
-        'user_id',
+        'comment_id',
         'meta_key',
         'meta_value',
     ];
@@ -46,8 +44,8 @@ class UserMeta extends Model {
      * @var array
      */
     protected array $casts = [
-        'umeta_id' => 'int',
-        'user_id'  => 'int',
+        'meta_id'    => 'int',
+        'comment_id' => 'int',
     ];
 
     /**
@@ -56,7 +54,7 @@ class UserMeta extends Model {
      * @return string
      */
     public static function get_table_name(): string {
-        return 'usermeta';
+        return 'commentmeta';
     }
 
     /**
@@ -69,9 +67,9 @@ class UserMeta extends Model {
     }
 
     /**
-     * Get the user that owns the meta.
+     * Get the comment that owns the meta.
      */
-    public function user() {
-        return $this->belongs_to( User::class, 'user_id', 'ID' );
+    public function comment() {
+        return $this->belongs_to( Comment::class, 'comment_id', 'comment_ID' );
     }
 }

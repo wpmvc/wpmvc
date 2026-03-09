@@ -27,6 +27,12 @@ return [
                 $contents = str_replace( ',../../phpcsstandards/phpcsutils', '', $contents );
             }
 
+            // Fix Mockery implicit nullability deprecated warnings
+            if ( basename( $file_path ) === 'Mockery.php' ) {
+                $contents = str_replace( 'formatArgs($method, array $arguments = null)', 'formatArgs($method, ?array $arguments = null)', $contents );
+                $contents = str_replace( 'formatObjects(array $objects = null)', 'formatObjects(?array $objects = null)', $contents );
+            }
+
             return $contents;
         },
     ],
@@ -41,9 +47,13 @@ return [
         'Elementor',
         'PHP_CodeSniffer',
         'PHPCompatibility',
-        'Symfony\Polyfill'
+        'Symfony\Polyfill',
+        'PHPUnit',
+        'SebastianBergmann',
+        'Yoast'
     ],
     'exclude-classes'         => [
+        'WP_REST_Response',
         'WP_HTTP_Response',
         'WP_REST_Request',
         'WP_REST_Server',
